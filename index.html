@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Maintenance Website - Bitwise</title>
+    <style>
+        :root {
+            --primary-blue: #1a73e8;
+            --dark-blue: #0d47a1;
+            --light-blue: #e8f0fe;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-medium: #e0e0e0;
+            --gray-dark: #757575;
+            --accent-color: #ff6d00;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--gray-light);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .section {
+            padding: 3rem 1rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-medium);
+        }
+
+        .intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            width: 300px;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-medium);
+        }
+
+        .card ul {
+            padding-left: 1.2rem;
+            list-style-type: none;
+        }
+
+        .card ul li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .card ul li:before {
+            content: "✓";
+            color: var(--primary-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin: 1.5rem 0 0;
+            text-align: center;
+            background: var(--light-blue);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray-dark);
+            font-weight: normal;
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(45deg) translate(30%, -50%);
+            transform-origin: bottom left;
+            width: 120px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: var(--dark-blue);
+            color: white;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 0 auto 1rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dotted white;
+        }
+
+        footer strong {
+            color: var(--accent-color);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #e65100;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+                /* max-width: 400px; */
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .intro p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+                width: 80%;
+            }
+
+            .card h2 {
+                font-size: 1.4rem;
+            }
+
+            .card ul li {
+                font-size: 0.95rem;
+            }
+
+            .price {
+                font-size: 1.4rem;
+                padding: 0.8rem;
+            }
+
+            .cta-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .popular-tag {
+                font-size: 0.7rem;
+                padding: 0.3rem 1rem;
+                width: 100px;
+                transform: rotate(45deg) translate(35%, -60%);
+            }
+
+            footer p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Paket Maintenance Website Bitwise</h1>
+        <p>Jaga performa dan keamanan website Anda tanpa repot dengan layanan profesional kami!</p>
+    </header>
+
+    <section class="section intro">
+        <p>Bitwise menyediakan layanan perawatan website dengan harga terjangkau untuk berbagai kebutuhan bisnis, dari
+            UMKM hingga perusahaan besar. Pilih paket yang sesuai dengan kebutuhan Anda dan biarkan tim ahli kami yang
+            mengurus sisanya.</p>
+    </section>
+
+    <section class="section">
+        <div class="card-container">
+            <div class="card">
+                <h2>Bit Basic</h2>
+                <ul>
+                    <li>Backup mingguan</li>
+                    <li>Update konten ringan</li>
+                    <li>Monitoring uptime 24/7</li>
+                    <li>Update plugin (WordPress)</li>
+                    <li>Support via email</li>
+                </ul>
+                <div class="price">Rp 200.000 <span>/ bulan</span></div>
+                <a href="https://wa.me/6289604300702?text=Saya%20tertarik%20dengan%20paket%20Basic"
+                    class="cta-button">Pilih Paket</a>
+            </div>
+            <div class="card">
+                <div class="popular-tag">POPULER</div>
+                <h2>Bit Usaha</h2>
+                <ul>
+                    <li>Semua fitur Basic</li>
+                    <li>Backup 2x per minggu</li>
+                    <li>Optimasi kecepatan</li>
+                    <li>SEO dasar & sitemap</li>
+                    <li>Perubahan konten 2x/bulan</li>
+                    <li>Support WhatsApp prioritas</li>
+                </ul>
+                <div class="price">Rp 500.000 <span>/ bulan</span></div>
+                <a href="https://wa.me/6289604300702?text=Saya%20tertarik%20dengan%20paket%20Usaha"
+                    class="cta-button">Pilih Paket</a>
+            </div>
+            <div class="card">
+                <h2>Bit Sultan</h2>
+                <ul>
+                    <li>Semua fitur Usaha</li>
+                    <li>Backup harian</li>
+                    <li>Audit keamanan bulanan</li>
+                    <li>Prioritas layanan 24/7</li>
+                    <li>Laporan performa lengkap</li>
+                    <li>Unlimited perubahan konten</li>
+                    <li>Dedicated account manager</li>
+                </ul>
+                <div class="price">Rp 1.200.000 <span>/ bulan</span></div>
+                <a href="https://wa.me/6289604300702?text=Saya%20tertarik%20dengan%20paket%20Sultan"
+                    class="cta-button">Pilih Paket</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Butuh konsultasi atau paket khusus untuk bisnis Anda? <strong>Tim ahli kami siap membantu!</strong></p>
+        <p>Hubungi kami di WhatsApp: <strong>0896-0430-0702</strong><br>
+            atau kirim email ke <a href="mailto:putramakatita723@gmail.com">putramakatita723@gmail.com</a></p>
+    </footer>
+</body>
+
+</html>
